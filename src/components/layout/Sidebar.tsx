@@ -6,11 +6,12 @@ import {
   Search,
   MessageSquare,
   Sparkles,
+  Presentation as PresentationIcon,
   X,
 } from 'lucide-react';
 import { type ReactNode } from 'react';
 
-export type PageId = 'dashboard' | 'email' | 'meeting' | 'tasks' | 'research' | 'chat';
+export type PageId = 'dashboard' | 'email' | 'meeting' | 'tasks' | 'research' | 'chat' | 'presentation';
 
 interface NavItem {
   id: PageId;
@@ -26,6 +27,7 @@ const navItems: NavItem[] = [
   { id: 'tasks', label: 'Task Planner', icon: <ListTodo className="w-[18px] h-[18px]" />, description: 'Prioritize & schedule' },
   { id: 'research', label: 'Research Assistant', icon: <Search className="w-[18px] h-[18px]" />, description: 'Insights & summaries' },
   { id: 'chat', label: 'AI Chatbot', icon: <MessageSquare className="w-[18px] h-[18px]" />, description: 'Ask anything' },
+  { id: 'presentation', label: 'Presentation', icon: <PresentationIcon className="w-[18px] h-[18px]" />, description: 'Project deck' },
 ];
 
 interface SidebarProps {

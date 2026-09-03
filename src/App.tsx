@@ -7,6 +7,7 @@ import { MeetingSummarizer } from '@/pages/MeetingSummarizer';
 import { TaskPlanner } from '@/pages/TaskPlanner';
 import { ResearchAssistant } from '@/pages/ResearchAssistant';
 import { Chatbot } from '@/pages/Chatbot';
+import { Presentation } from '@/pages/Presentation';
 
 const pageInfo: Record<PageId, { title: string; subtitle: string }> = {
   dashboard: { title: 'Dashboard', subtitle: 'Your AI-powered workspace overview' },
@@ -15,6 +16,7 @@ const pageInfo: Record<PageId, { title: string; subtitle: string }> = {
   tasks: { title: 'AI Task Planner', subtitle: 'Prioritize your workload and get an intelligent daily schedule' },
   research: { title: 'AI Research Assistant', subtitle: 'Generate structured research briefings with insights and trends' },
   chat: { title: 'AI Chatbot', subtitle: 'Ask anything about productivity and workplace tasks' },
+  presentation: { title: 'Project Presentation', subtitle: 'FlowAI — how it was built and challenges overcome' },
 };
 
 function App() {
@@ -39,6 +41,8 @@ function App() {
         return <ResearchAssistant />;
       case 'chat':
         return <Chatbot />;
+      case 'presentation':
+        return <Presentation />;
       default:
         return <Dashboard onNavigate={handleNavigate} />;
     }
@@ -62,7 +66,7 @@ function App() {
           subtitle={info.subtitle}
         />
 
-        <main className="flex-1 p-4 lg:p-8 max-w-[1400px] w-full mx-auto animate-fade-in" key={activePage}>
+        <main className={`flex-1 ${activePage === 'presentation' ? 'p-2 lg:p-4' : 'p-4 lg:p-8'} ${activePage === 'presentation' ? 'max-w-[1600px]' : 'max-w-[1400px]'} w-full mx-auto animate-fade-in`} key={activePage}>
           {renderPage()}
         </main>
       </div>
